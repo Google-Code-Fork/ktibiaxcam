@@ -1,0 +1,233 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1956C40B-A021-4DB3-B645-5EE0971D84CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tibia</RootNamespace>
+    <AssemblyName>Tibia</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Keyrox.Shared, Version=1.2.3413.23724, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\library\Keyrox.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\TibiaClient.cs" />
+    <Compile Include="Client\TibiaClientCollection.cs" />
+    <Compile Include="Client\Contracts\IClient.cs" />
+    <Compile Include="Connection\Common\ClientFont.cs" />
+    <Compile Include="Connection\Common\ConnectionState.cs" />
+    <Compile Include="Connection\Common\Extensions.cs" />
+    <Compile Include="Connection\Common\PacketSource.cs" />
+    <Compile Include="Connection\Common\PacketType.cs" />
+    <Compile Include="Connection\Common\PipePacketType.cs" />
+    <Compile Include="Connection\Core\CamProxy.cs" />
+    <Compile Include="Connection\Core\Local.cs" />
+    <Compile Include="Connection\Core\Pipe.cs" />
+    <Compile Include="Connection\Core\Proxy.cs" />
+    <Compile Include="Connection\Events\PacketEventArgs.cs" />
+    <Compile Include="Connection\Model\CharListIgnored.cs" />
+    <Compile Include="Connection\Model\Contracts\IPacket.cs" />
+    <Compile Include="Connection\Model\Contracts\IPipe.cs" />
+    <Compile Include="Connection\Model\Packet.cs" />
+    <Compile Include="Connection\Model\PipePacket.cs" />
+    <Compile Include="Connection\Model\PlayerList.cs" />
+    <Compile Include="Connection\Providers\ConnectionProvider.cs" />
+    <Compile Include="Connection\Providers\Contracts\IConnection.cs" />
+    <Compile Include="Connection\Providers\Contracts\ICryptoManager.cs" />
+    <Compile Include="Connection\Providers\CryptoManager.cs" />
+    <Compile Include="Connection\Providers\PacketBuilder.cs" />
+    <Compile Include="Connection\Providers\PacketFactory.cs" />
+    <Compile Include="Connection\Providers\PipePacketBuilder.cs" />
+    <Compile Include="Features\Actions\Hotkeys.cs" />
+    <Compile Include="Features\Actions\Items\Fish.cs" />
+    <Compile Include="Features\Actions\Items\Stack.cs" />
+    <Compile Include="Features\Actions\Items\Use.cs" />
+    <Compile Include="Features\Actions\Messages\Helpers.cs" />
+    <Compile Include="Features\Actions\Messages\Screen.cs" />
+    <Compile Include="Features\Actions\Messages\Server.cs" />
+    <Compile Include="Features\Actions\Messages\System.cs" />
+    <Compile Include="Features\Actions\Pipes\DisplayCreatureTextPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\DisplayTextPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\InjectDisplayPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\RemoveAllTextPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\RemoveCreatureTextPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\RemoveTextPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\SetConstantPacket.cs" />
+    <Compile Include="Features\Actions\Pipes\UpdateCreatureTextPacket.cs" />
+    <Compile Include="Features\Actions\Player\Attack.cs" />
+    <Compile Include="Features\Actions\Player\Position.cs" />
+    <Compile Include="Features\Common\Addons.cs" />
+    <Compile Include="Features\Common\AnimatedMsgColor.cs" />
+    <Compile Include="Features\Common\AttackType.cs" />
+    <Compile Include="Features\Common\ChannelMsgColor.cs" />
+    <Compile Include="Features\Common\ChannelType.cs" />
+    <Compile Include="Features\Common\ChaseType.cs" />
+    <Compile Include="Features\Common\CreatureType.cs" />
+    <Compile Include="Features\Common\CustomMessageType.cs" />
+    <Compile Include="Features\Common\Direction.cs" />
+    <Compile Include="Features\Common\FlagType.cs" />
+    <Compile Include="Features\Common\Fluids.cs" />
+    <Compile Include="Features\Common\HotkeyUseMode.cs" />
+    <Compile Include="Features\Common\InternalChannels.cs" />
+    <Compile Include="Features\Common\InventoryID.cs" />
+    <Compile Include="Features\Common\ItemKind.cs" />
+    <Compile Include="Features\Common\ItemSearchArgs.cs" />
+    <Compile Include="Features\Common\LightColor.cs" />
+    <Compile Include="Features\Common\LightIntensity.cs" />
+    <Compile Include="Features\Common\MagicEffects.cs" />
+    <Compile Include="Features\Common\MessageType.cs" />
+    <Compile Include="Features\Common\OutfitKind.cs" />
+    <Compile Include="Features\Common\PartyRank.cs" />
+    <Compile Include="Features\Common\RangeType.cs" />
+    <Compile Include="Features\Common\SearchCriteria.cs" />
+    <Compile Include="Features\Common\SearchFilter.cs" />
+    <Compile Include="Features\Common\SearchType.cs" />
+    <Compile Include="Features\Common\Skull.cs" />
+    <Compile Include="Features\Common\SortDirection.cs" />
+    <Compile Include="Features\Common\SystemMsgColor.cs" />
+    <Compile Include="Features\Events\LocationChanged.cs" />
+    <Compile Include="Features\Model\Contracts\IBaseItem.cs" />
+    <Compile Include="Features\Model\Contracts\IContainer.cs" />
+    <Compile Include="Features\Model\Contracts\ICreature.cs" />
+    <Compile Include="Features\Model\Contracts\IItem.cs" />
+    <Compile Include="Features\Model\Contracts\IPlayer.cs" />
+    <Compile Include="Features\Model\Contracts\ISlot.cs" />
+    <Compile Include="Features\Model\Creatures\Creature.cs" />
+    <Compile Include="Features\Model\Creatures\CreatureCollection.cs" />
+    <Compile Include="Features\Model\Creatures\Inventory.cs" />
+    <Compile Include="Features\Model\Creatures\Player.cs" />
+    <Compile Include="Features\Model\Creatures\Skills.cs" />
+    <Compile Include="Features\Model\Creatures\VipUser.cs" />
+    <Compile Include="Features\Model\Items\BaseItem.cs" />
+    <Compile Include="Features\Model\Items\Container.cs" />
+    <Compile Include="Features\Model\Items\ContainerCollection.cs" />
+    <Compile Include="Features\Model\Items\DatItem.cs" />
+    <Compile Include="Features\Model\Items\DatItemFlags.cs" />
+    <Compile Include="Features\Model\Items\DatReader.cs" />
+    <Compile Include="Features\Model\Items\Item.cs" />
+    <Compile Include="Features\Model\Items\Slot.cs" />
+    <Compile Include="Features\Model\Items\SlotCollection.cs" />
+    <Compile Include="Features\Model\List\BattleList.cs" />
+    <Compile Include="Features\Model\List\VipList.cs" />
+    <Compile Include="Features\Providers\ActionProvider.cs" />
+    <Compile Include="Features\Providers\FeatureProvider.cs" />
+    <Compile Include="Features\Providers\MessageProvider.cs" />
+    <Compile Include="Features\Structures\AttackMode.cs" />
+    <Compile Include="Features\Structures\Distance.cs" />
+    <Compile Include="Features\Structures\Flags.cs" />
+    <Compile Include="Features\Structures\Light.cs" />
+    <Compile Include="Features\Structures\Location.cs" />
+    <Compile Include="Features\Structures\PointsLeft.cs" />
+    <Compile Include="Features\Structures\PointsMax.cs" />
+    <Compile Include="Features\Structures\Range.cs" />
+    <Compile Include="Memory\AddressDTO.cs" />
+    <Compile Include="Memory\AddressDTOCollection.cs" />
+    <Compile Include="Memory\AddressFileProvider.cs" />
+    <Compile Include="Memory\AddressProvider.cs" />
+    <Compile Include="Memory\Address\BattleList.cs" />
+    <Compile Include="Memory\Address\Client.cs" />
+    <Compile Include="Memory\Address\Containers.cs" />
+    <Compile Include="Memory\Address\Contracts\IBattleList.cs" />
+    <Compile Include="Memory\Address\Contracts\IClient.cs" />
+    <Compile Include="Memory\Address\Contracts\IContainers.cs" />
+    <Compile Include="Memory\Address\Contracts\ICreature.cs" />
+    <Compile Include="Memory\Address\Contracts\IDatItem.cs" />
+    <Compile Include="Memory\Address\Contracts\IInventory.cs" />
+    <Compile Include="Memory\Address\Contracts\IMap.cs" />
+    <Compile Include="Memory\Address\Contracts\IPlayer.cs" />
+    <Compile Include="Memory\Address\Contracts\ISkills.cs" />
+    <Compile Include="Memory\Address\Contracts\ISpyLevel.cs" />
+    <Compile Include="Memory\Address\Contracts\IVipList.cs" />
+    <Compile Include="Memory\Address\Creature.cs" />
+    <Compile Include="Memory\Address\DatItem.cs" />
+    <Compile Include="Memory\Address\Inventory.cs" />
+    <Compile Include="Memory\Address\Map.cs" />
+    <Compile Include="Memory\Address\Player.cs" />
+    <Compile Include="Memory\Address\Skills.cs" />
+    <Compile Include="Memory\Address\SpyLevel.cs" />
+    <Compile Include="Memory\Address\VipList.cs" />
+    <Compile Include="Memory\MemoryAddresses.cs" />
+    <Compile Include="Memory\TibiaMemoryProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MemoryAddress.dmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
